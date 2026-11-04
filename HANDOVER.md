@@ -4,7 +4,8 @@
 ## 지금 하던 일
 - [x] v0.1: 순위 · 검색 · 급성장 · 게임 상세(추정 수익) · 내 게임 · 내 목록 · 알림 · 설정
 - [x] DB 를 Turso(libSQL) 로도 붙게 바꾸기 · 수집을 GitHub Actions 로(30분)
-- [x] 저장소: https://github.com/playpu1se/PlayPulse (공개 · 첫 커밋 41927d6)
+- [x] 저장소: https://github.com/playpu1se/PlayPulse (공개 · 2026-11-04 기록 정리 위해 새로 만듦 · 첫 커밋 b6d8068)
+- [x] 올리기는 `scripts/push-public.sh` 만 (검사 실패면 안 올라감 · 기록까지 검사)
 - [x] Turso DB(도쿄) · GitHub Secrets · `collect` 30분마다 켜짐(첫 실행 성공 · 게임 606개)
 - [x] Vercel 배포: https://playpulse-ochre.vercel.app (환경 변수 3개 · Next 15.5.29)
 - [ ] Vercel ↔ GitHub 자동 배포 연결(Vercel GitHub 앱 설치 필요) — 그 전까지는 `vercel deploy --prod`
