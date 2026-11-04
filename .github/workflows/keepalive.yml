@@ -1,0 +1,20 @@
+# 공개 저장소는 60일 동안 활동이 없으면 GitHub 가 예약 실행(collect)을 꺼 버려요.
+# 한 달에 한 번 collect.yml 을 다시 켜서(API) 꺼지지 않게 해요. 커밋은 만들지 않아요.
+name: keepalive
+
+on:
+  schedule:
+    - cron: "0 3 1 * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  enable-collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: collect 워크플로 다시 켜기
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT repos/${{ github.repository }}/actions/workflows/collect.yml/enable

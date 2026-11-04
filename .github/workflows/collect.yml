@@ -1,0 +1,31 @@
+# 30분마다 로블록스 공개 정보를 모아 Turso DB 에 넣어요.
+# 필요한 저장소 Secrets: TURSO_DATABASE_URL · TURSO_AUTH_TOKEN
+name: collect
+
+on:
+  schedule:
+    - cron: "7,37 * * * *" # 정각을 피해 7분·37분 (GitHub 이 몇 분 늦게 돌릴 수 있어요)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run collect
+        env:
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
