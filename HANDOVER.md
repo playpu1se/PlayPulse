@@ -1,10 +1,10 @@
 # 인수인계
-마지막 갱신: 2026-11-04 21:30 (계정 옮기기 전 정리)
+마지막 갱신: 2026-11-04 23:30 (자동 수집 복구 중)
 
 ## 지금 상태 (한눈에)
 - 사이트: https://playpulse-ochre.vercel.app — 열려 있음 · `/api/health` 정상
 - 저장소: https://github.com/playpu1se/PlayPulse — 공개 · 작성자 playpu1se 만
-- 수집: GitHub Actions `collect` 30분마다(매시 7·37분) → Turso(도쿄) → 끝나면 `/api/revalidate` 로 사이트 바로 새로고침
+- 수집: GitHub Actions `collect` 30분마다(매시 11·41분 · 예약 실행 확인 중) → Turso(도쿄) → 끝나면 `/api/revalidate` 로 사이트 바로 새로고침
 - 이 컴퓨터에서 도는 것: 없음 (로컬 수집기·개발 서버 모두 끔). 컴퓨터를 꺼도 사이트·수집은 계속 돌아요.
 - 데이터: 2026-11-04 17:40 부터 쌓이는 중 · 마지막 수집 21:10 · 게임 약 609개 · 수집 12번
 

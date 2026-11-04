@@ -4,7 +4,7 @@ name: collect
 
 on:
   schedule:
-    - cron: "7,37 * * * *" # 정각을 피해 7분·37분 (GitHub 이 몇 분 늦게 돌릴 수 있어요)
+    - cron: "11,41 * * * *" # 정각을 피해 11분·41분 (GitHub 이 몇 분 늦게 돌릴 수 있어요)
   workflow_dispatch: {}
 
 permissions:
