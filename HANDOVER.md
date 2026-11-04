@@ -10,6 +10,8 @@
 - [x] Vercel 배포: https://playpulse-ochre.vercel.app (환경 변수 3개 · Next 15.5.29)
 - [ ] Vercel ↔ GitHub 자동 배포 연결(Vercel GitHub 앱 설치 필요) — 그 전까지는 `vercel deploy --prod`
 - [x] 속도: 공개 데이터 5분 저장(`src/lib/cached.ts`) · 두 번째부터 0.01초
+- [x] 수집 끝나면 `/api/revalidate` 로 저장 바로 지움(코드 끝) · [ ] 비밀값 `REVALIDATE_SECRET` + 변수 `SITE_URL` 넣기(운영자가 `_private` 스크립트 실행)
+- [x] 새 저장소에서 GitHub 수집 다시 성공(2026-11-04 GitHub 장애 뒤)
 - [ ] 「왜 인기인가」 기능: ① 무료 신호(업데이트·유튜브) ② AI 요약(유료 API · 출처 필수) — 운영자 결정 기다림
 - [x] 수익 보정 1차: 로블록스 공식 실적으로 전체 합계 검사(관리자 페이지) · 단가 유지 → `문서/보정-자료.md`
 - [ ] 게임별 오차 확인(공개 수익 자료 더 모으기)
