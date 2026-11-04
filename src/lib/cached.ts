@@ -7,7 +7,8 @@ import * as q from "./queries";
 export type { GameCard, Granularity, RankingKind, SearchSort, SeriesPoint } from "./queries";
 export { RANKINGS } from "./queries";
 
-const KEEP = { revalidate: 300 };
+export const DATA_TAG = "data";
+const KEEP = { revalidate: 300, tags: [DATA_TAG] };
 
 export const stats = unstable_cache(() => q.stats(), ["stats"], KEEP);
 export const genres = unstable_cache(() => q.genres(), ["genres"], KEEP);
