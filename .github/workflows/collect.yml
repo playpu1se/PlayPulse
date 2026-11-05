@@ -1,4 +1,5 @@
 # 30분마다 로블록스 공개 정보를 모아 Turso DB 에 넣어요.
+# GitHub 예약이 약 1시간마다만 돌아서, 한 번 실행에 30분 간격으로 두 번 모아요.
 # 필요한 저장소 Secrets: TURSO_DATABASE_URL · TURSO_AUTH_TOKEN · REVALIDATE_SECRET · Variables: SITE_URL
 name: collect
 
@@ -17,7 +18,12 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
+    env:
+      TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+      TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+      SITE_URL: ${{ vars.SITE_URL }}
+      REVALIDATE_SECRET: ${{ secrets.REVALIDATE_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,8 +32,5 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run collect
-        env:
-          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
-          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
-          SITE_URL: ${{ vars.SITE_URL }}
-          REVALIDATE_SECRET: ${{ secrets.REVALIDATE_SECRET }}
+      - run: sleep 1680 # 수집 약 2분 + 28분 = 30분 간격
+      - run: npm run collect
